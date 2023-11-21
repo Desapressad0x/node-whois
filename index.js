@@ -16,7 +16,6 @@ function whois(dominio) {
     });
 
     client.on('end', () => {
-	  console.log(resultado);
       resolve(resultado);
     });
 
