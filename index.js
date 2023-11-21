@@ -46,20 +46,20 @@ const server = http.createServer((req, res) => {
       const dominio = body_lol?.['domain'];
       
       if (!dominio) {
-	      res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
-		    res.end('No.');
-	    }
+        res.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+	res.end('No.');
+      }
 	  
       whois(dominio).then((kk) => {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.end(`
-		      <button onclick="window.history.back()">Back</button>
-		      <br>
-		      <br>
-		      <center>
-		       ${kk.replace(/\n/g, '<br>')}
-		      </center>
-		    `);
+	  <button onclick="window.history.back()">Back</button>
+	  <br>
+	  <br>
+	  <center>
+	    ${kk.replace(/\n/g, '<br>')}
+	  </center>
+	`);
       }).catch(() => {
         res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
         res.end('Something went wrong.');
