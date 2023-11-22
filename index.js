@@ -3,6 +3,10 @@ const http = require('http');
 const fs = require('fs');
 const qs = require('querystring');
 
+/**
+ * @param {string} dominio - Domain to be searched.
+ * @returns {Promise<string>} - Promise that resolves with the resulting string of the search.
+ */
 function whois(dominio) {
   return new Promise((resolve, reject) => {
     const client = net.createConnection(43, 'whois.internic.net', () => {
